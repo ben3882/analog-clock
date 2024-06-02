@@ -77,6 +77,7 @@
 
 .numbers {
     font-size: 1.5em;
+    /* border: 1px solid green; */
 }
 
 .number12 {
@@ -93,7 +94,7 @@
     top:calc(var(--clock-width)/2);
     left: calc(var(--clock-width));
     transform-origin: center;
-    transform: translate(-100%, -50%);
+    transform: translate(-120%, -50%);
 
 }
 .number6 {
@@ -114,3 +115,73 @@
 
 }
 
+.number1 {
+    position:absolute;
+    top:calc(var(--clock-width) * 0.1340/2);
+    left: calc(var(--clock-width) * 1.5/2);
+    transform-origin: center;
+    transform: translate(-100%);
+}
+
+.number2 {
+    position:absolute;
+    top:calc(var(--clock-width) * 0.5/2);
+    left: calc(var(--clock-width) * 1.87/2);
+    transform-origin: center;
+    transform: translate(-100%);
+
+}
+
+.number4 {
+    position:absolute;
+    top:calc(var(--clock-width) * 1.5/2);
+    left: calc(var(--clock-width) * 1.87/2);
+    transform-origin: center;
+    transform: translate(-100%, -100%);
+    
+}
+
+.number5 {
+    position:absolute;
+    top:calc(var(--clock-width) * 1.87/2);
+    left: calc(var(--clock-width) * 1.5/2);
+    transform-origin: center;
+    transform: translate(-50%, -100%);
+
+}
+
+.number7 {
+    position:absolute;
+    top:calc(var(--clock-width) * 1.87/2);
+    left: calc(var(--clock-width) * 0.5/2);
+    transform-origin: center;
+    transform: translate(0, -100%);
+
+}
+
+.number8 {
+    position:absolute;
+    top:calc(var(--clock-width) * 1.5/2);
+    left: calc(var(--clock-width) * 0.134/2);
+    transform-origin: center;
+    transform: translate(0, -100%);
+
+}
+
+.number10 {
+    position:absolute;
+    top:calc(var(--clock-width) * 0.5/2);
+    left: calc(var(--clock-width) * 0.134/2);
+    transform-origin: center;
+    transform: translate(12.5%, -12.5%);
+
+}
+
+.number11 {
+    position:absolute;
+    top:calc(var(--clock-width) * 0.1340/2);
+    left: calc(var(--clock-width) * 0.5/2);
+    transform-origin: center;
+    transform: translate(-6.25%, 12.5%);
+
+}
