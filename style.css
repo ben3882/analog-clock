@@ -1,15 +1,17 @@
 :root {
     --clock-width: 50vw;
     --clock-height: var(--clock-width);
+    --second-hand: calc(var(--clock-width) * .01);
+    --second-hand-length: calc(var(--clock-width) * .45);
     --hour-hand: calc(var(--clock-width) * .05);
-    --hour-hand-length: calc(var(--clock-width) * .35);
+    --hour-hand-length: calc(var(--clock-width) * .3);
     --minute-hand: calc(var(--clock-width) * .03);
-    --minute-hand-length: calc(var(--clock-width) * .4);
+    --minute-hand-length: calc(var(--clock-width) * .375);
 }
 
 .container {
     position: relative;    
-    border: 1px solid blue;
+    /* border: 1px solid blue; */
     width: var(--clock-width);
     height: var(--clock-height);
     top: calc(100vh/2);
@@ -42,7 +44,7 @@
     left: calc(var(--clock-width)/2);
     
     transform-origin: center bottom;
-    transform: translateX(-50%) rotate(0.9turn);
+    transform: translateX(-50%) rotate(0deg);
     width: var(--hour-hand);
     height: var(--hour-hand-length);
     background-color: blue;
@@ -54,9 +56,61 @@
     top: calc(var(--clock-width)/2 - var(--minute-hand-length));
     left: 50%;
     transform-origin: center bottom;
-    transform: translateX(-50%) rotate(0.turn);
+    transform: translateX(-50%) rotate(0deg);
     width: var(--minute-hand);
     height: var(--minute-hand-length);
     background-color: black;
     border-radius: 1vw;
 }
+
+.second-hand {
+    position: absolute;
+    top: calc(var(--clock-width)/2 - var(--second-hand-length));
+    left: 50%;
+    transform-origin: center bottom;
+    transform: translateX(-50%) rotate(0deg);
+    width: var(--second-hand);
+    height: var(--second-hand-length);
+    background-color: purple;
+    border-radius: 1vw;
+}
+
+.numbers {
+    font-size: 1.5em;
+}
+
+.number12 {
+    position:absolute;
+    top:0;
+    left: calc(var(--clock-width)/2);
+    transform-origin: center;
+    transform: translate(-50%);
+
+}
+
+.number3 {
+    position:absolute;
+    top:calc(var(--clock-width)/2);
+    left: calc(var(--clock-width));
+    transform-origin: center;
+    transform: translate(-100%, -50%);
+
+}
+.number6 {
+    position:absolute;
+    top:calc(var(--clock-width));
+    left: calc(var(--clock-width)/2);
+    transform-origin: center;
+    transform: translate(-50%, -100%);
+
+}
+
+.number9 {
+    position:absolute;
+    top:calc(var(--clock-width)/2);
+    left: 0;
+    transform-origin: center;
+    transform: translate(50%, -50%);
+
+}
+
