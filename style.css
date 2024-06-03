@@ -7,8 +7,12 @@
     --hour-hand-length: calc(var(--clock-width) * .3);
     --minute-hand: calc(var(--clock-width) * .03);
     --minute-hand-length: calc(var(--clock-width) * .375);
+    --dot: 2vw;
 }
 
+body {
+    box-sizing: border-box;
+}
 .container {
     position: relative;    
     /* border: 1px solid blue; */
@@ -23,7 +27,8 @@
     width: var(--clock-width);
     height: var(--clock-height);
     border: 1px solid red;
-    border-radius: calc(var(--clock-width) / 2);
+    border-radius: calc(var(--clock-width) / 1.5);
+    
 }
 
 .clock-center {
@@ -35,6 +40,7 @@
     height: 5vw;
     border: 1px solid red;
     border-radius: 50vw;
+    visibility: hidden;
 }
 
 
@@ -184,4 +190,13 @@
     transform-origin: center;
     transform: translate(-6.25%, 12.5%);
 
+}
+
+.dot {
+    position: relative;
+    width: var(--dot);
+    height: var(--dot);
+    border: 1px solid black;
+    background-color: black;
+    border-radius: 2vw;
 }
