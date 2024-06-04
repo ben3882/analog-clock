@@ -4,21 +4,34 @@ let hourHand = document.querySelector('.hour-hand');
 let timeDisplay = document.querySelector('.time');
 let container = document.querySelector('.container');
 let dot = document.querySelector('.dot');
+ let dots = [];
 
 function makeDots () {
-    let dots = [];
-    for( let i = 0; i < 3; i++) {
+    for( let i = 0; i < 4; i++) {
         dots[i] = document.createElement('div');
+        dots[i].setAttribute('class', `dot`);
         container.appendChild(dots[i]);
-        dots[i].className = 'dot';
-        dots[i].style.position = 'absolute';
-        dots[i].style.backgroundColor = 'blue';
-        dots[i].style.top = `${i*10}vw`;
-        dots[i].style.left = `${i*10}vw`;
-        
     }
 }
+
+function placeDots(){
+  let angle = (90 * Math.PI) / 180;
+    for( let i = 0; i < 4; i++) {
+        dots[i].style.position = 'absolute';
+        dots[i].style.backgroundColor = 'blue';
+        dots[i].style.top = `${50 * ( 1 - Math.cos(angle*i))/2}vw`;
+        dots[i].style.left = `${50 * ( 1 + Math.sin(angle*i))/2}vw`;
+        dots[i].style.transform = `translate(${(1 + Math.sin(angle * (i)))*-100/2}%, ${(1 - Math.cos(angle * (i)))*-100/2}%)`;
+        //`${(1 + Math.sin(angle * (i)))*-100/2}%`, `${1 + Math.cos(angle*(i))*-100/2}%`
+    // top:calc(var(--clock-width)/2);
+    // left: 0;
+    }
+}
+
 makeDots();
+placeDots();
+console.log(dots);
+
 
 setInterval(()=>{
     let s, m, h;
