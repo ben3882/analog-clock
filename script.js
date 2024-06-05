@@ -5,7 +5,9 @@ let timeDisplay = document.querySelector('.time');
 let container = document.querySelector('.container');
 let dot = document.querySelector('.dot');
  let dots = [];
-
+ let tickMark = [];
+let clockDiameter = 33;
+ 
 function makeDots () {
     for( let i = 0; i < 4; i++) {
         dots[i] = document.createElement('div');
@@ -15,22 +17,48 @@ function makeDots () {
 }
 
 function placeDots(){
-  let angle = (90 * Math.PI) / 180;
+  let angle = 90;
+  let radians = (angle * Math.PI) / 180;
     for( let i = 0; i < 4; i++) {
         dots[i].style.position = 'absolute';
         dots[i].style.backgroundColor = 'blue';
-        dots[i].style.top = `${50 * ( 1 - Math.cos(angle*i))/2}vw`;
-        dots[i].style.left = `${50 * ( 1 + Math.sin(angle*i))/2}vw`;
-        dots[i].style.transform = `translate(${(1 + Math.sin(angle * (i)))*-100/2}%, ${(1 - Math.cos(angle * (i)))*-100/2}%)`;
-        //`${(1 + Math.sin(angle * (i)))*-100/2}%`, `${1 + Math.cos(angle*(i))*-100/2}%`
-    // top:calc(var(--clock-width)/2);
-    // left: 0;
+        dots[i].style.top = `${clockDiameter * ( 1 - Math.cos(radians*i))/2}vw`;
+        dots[i].style.left = `${clockDiameter * ( 1 + Math.sin(radians*i))/2}vw`;
+        dots[i].style.transform = `translate(${(1 + Math.sin(radians * (i)))*-100/2}%, ${(1 - Math.cos(radians * (i)))*-100/2}%)`;
     }
 }
 
-makeDots();
-placeDots();
-console.log(dots);
+function tickMarks () {
+    for(let i = 0; i < 60; i++) {
+        if (i % 5 != 0) {
+            tickMark[i] = document.createElement('div');
+            tickMark[i].setAttribute('class', 'tick-mark');
+            tickMark[i].style.width = `${clockDiameter/120}vw`;
+            tickMark[i].style.height = `${clockDiameter/60}vw`;
+            tickMark[i].style.backgroundColor = 'purple'
+            container.appendChild(tickMark[i]);
+        }
+    }
+    console.log(tickMark);
+}
+
+function placeTickMarks () {
+    let angle = 6;
+    let radians = (angle * Math.PI) / 180;
+    for(let i = 0; i < 60; i++) {
+        if (i % 5 != 0) {
+            tickMark[i].style.position = 'absolute';
+            tickMark[i].style.top = `${clockDiameter * ( 1 - Math.cos(radians*i))/2}vw`;
+            tickMark[i].style.left = `${clockDiameter * ( 1 + Math.sin(radians*i))/2}vw`;
+            tickMark[i].style.transform = `translate(-50%) rotate(${angle * i}deg)`;
+            tickMark[i].style.transformOrigin = 'center top';
+        }
+    }
+}
+// makeDots();
+// placeDots();
+tickMarks();
+placeTickMarks();
 
 
 setInterval(()=>{
@@ -49,7 +77,6 @@ setInterval(()=>{
     }
 }, '1000');
 
-// timeDisplay.textContent=minutes.toString();
 
-// console.log(minutes);
+
 

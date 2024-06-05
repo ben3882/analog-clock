@@ -1,5 +1,5 @@
 :root {
-    --clock-width: 50vw;
+    --clock-width: 33vw;
     --clock-height: var(--clock-width);
     --second-hand: calc(var(--clock-width) * .01);
     --second-hand-length: calc(var(--clock-width) * .45);
@@ -13,21 +13,37 @@
 body {
     box-sizing: border-box;
 }
+
+.outer-container {
+    position: relative;
+    border: 15px solid goldenrod;
+    border-radius: 50vw;
+    width: calc(var(--clock-width) * 1.02);
+    height: calc(var(--clock-height) * 1.02);
+    top: 50vh;
+    left: 50vw;
+    transform: translate(-50%, -50%);
+}
 .container {
-    position: relative;    
+    position: absolute;    
     /* border: 1px solid blue; */
     width: var(--clock-width);
     height: var(--clock-height);
-    top: calc(100vh/2);
-    left:calc(100vw/2);
+    top: 50%;
+    left: 50%;
+    /* top: calc(100vh/2);
+    left:calc(100vw/2); */
     transform: translate(-50%, -50%);
 }
 .clock-face {
     position: absolute;
-    width: var(--clock-width);
-    height: var(--clock-height);
-    border: 1px solid red;
-    border-radius: calc(var(--clock-width) / 1.5);
+    width: calc(var(--clock-width)*1);
+    height: calc(var(--clock-height)*1);
+    
+    /* padding: 3px; */
+    /* border: 1px solid gold; */
+    border-radius: calc(var(--clock-width) / 1);
+    overflow: auto;
     
 }
 
@@ -38,9 +54,9 @@ body {
     transform:translate(-50%, -50%);
     width: 5vw;
     height: 5vw;
-    border: 1px solid red;
+    /* border: 1px solid red; */
     border-radius: 50vw;
-    visibility: hidden;
+    /* visibility: hidden; */
 }
 
 
@@ -60,7 +76,7 @@ body {
 .minute-hand {
     position: absolute;
     top: calc(var(--clock-width)/2 - var(--minute-hand-length));
-    left: 50%;
+    left: calc(var(--clock-width)/2);
     transform-origin: center bottom;
     transform: translateX(-50%) rotate(0deg);
     width: var(--minute-hand);
@@ -72,7 +88,7 @@ body {
 .second-hand {
     position: absolute;
     top: calc(var(--clock-width)/2 - var(--second-hand-length));
-    left: 50%;
+    left: calc(var(--clock-width)/2);
     transform-origin: center bottom;
     transform: translateX(-50%) rotate(0deg);
     width: var(--second-hand);
@@ -82,7 +98,7 @@ body {
 }
 
 .numbers {
-    font-size: 1.5em;
+    font-size: 1em;
     /* border: 1px solid green; */
 }
 
@@ -91,7 +107,7 @@ body {
     top:0;
     left: calc(var(--clock-width)/2);
     transform-origin: center;
-    transform: translate(-50%);
+    transform: translate(-50%, 0);
 
 }
 
@@ -100,7 +116,7 @@ body {
     top:calc(var(--clock-width)/2);
     left: calc(var(--clock-width));
     transform-origin: center;
-    transform: translate(-120%, -50%);
+    transform: translate(-100%, -50%);
 
 }
 .number6 {
@@ -117,7 +133,7 @@ body {
     top:calc(var(--clock-width)/2);
     left: 0;
     transform-origin: center;
-    transform: translate(50%, -50%);
+    transform: translate(0%, -50%);
 
 }
 
@@ -126,7 +142,7 @@ body {
     top:calc(var(--clock-width) * 0.1340/2);
     left: calc(var(--clock-width) * 1.5/2);
     transform-origin: center;
-    transform: translate(-100%);
+    transform: translate(-75%, 6.7%);
 }
 
 .number2 {
@@ -134,7 +150,7 @@ body {
     top:calc(var(--clock-width) * 0.5/2);
     left: calc(var(--clock-width) * 1.87/2);
     transform-origin: center;
-    transform: translate(-100%);
+    transform: translate(-93.3%, -25%);
 
 }
 
@@ -143,7 +159,7 @@ body {
     top:calc(var(--clock-width) * 1.5/2);
     left: calc(var(--clock-width) * 1.87/2);
     transform-origin: center;
-    transform: translate(-100%, -100%);
+    transform: translate(-93.3%, -75%);
     
 }
 
@@ -152,7 +168,7 @@ body {
     top:calc(var(--clock-width) * 1.87/2);
     left: calc(var(--clock-width) * 1.5/2);
     transform-origin: center;
-    transform: translate(-50%, -100%);
+    transform: translate(-75%, -93.3%);
 
 }
 
@@ -161,7 +177,7 @@ body {
     top:calc(var(--clock-width) * 1.87/2);
     left: calc(var(--clock-width) * 0.5/2);
     transform-origin: center;
-    transform: translate(0, -100%);
+    transform: translate(-25%, -93.3%);
 
 }
 
@@ -170,7 +186,7 @@ body {
     top:calc(var(--clock-width) * 1.5/2);
     left: calc(var(--clock-width) * 0.134/2);
     transform-origin: center;
-    transform: translate(0, -100%);
+    transform: translate(-6.7%, -75%);
 
 }
 
@@ -179,7 +195,7 @@ body {
     top:calc(var(--clock-width) * 0.5/2);
     left: calc(var(--clock-width) * 0.134/2);
     transform-origin: center;
-    transform: translate(12.5%, -12.5%);
+    transform: translate(-6.7%, -25%);
 
 }
 
@@ -188,7 +204,7 @@ body {
     top:calc(var(--clock-width) * 0.1340/2);
     left: calc(var(--clock-width) * 0.5/2);
     transform-origin: center;
-    transform: translate(-6.25%, 12.5%);
+    transform: translate(-25%, -6.7%);
 
 }
 
@@ -199,4 +215,26 @@ body {
     border: 1px solid black;
     background-color: black;
     border-radius: 2vw;
+}
+
+.tick-mark {
+    position: relative;
+}
+
+@media screen and (min-width: 1000px) {
+    :root {
+        --clock-width: 33vw;
+    }
+
+    .clock-face {
+        background-color: antiquewhite;
+    }
+
+    .outer-container {
+        background-color: antiquewhite;
+    }
+
+    .numbers {
+        font-size: 2em;
+    }
 }
