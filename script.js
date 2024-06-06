@@ -4,9 +4,12 @@ let hourHand = document.querySelector('.hour-hand');
 let timeDisplay = document.querySelector('.time');
 let container = document.querySelector('.container');
 let dot = document.querySelector('.dot');
+let root = document.documentElement;
+let clockDiameter = 50;
  let dots = [];
  let tickMark = [];
-let clockDiameter = 33;
+
+root.style.setProperty('--clock-width', `${clockDiameter}vw`);
  
 function makeDots () {
     for( let i = 0; i < 4; i++) {

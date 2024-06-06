@@ -228,6 +228,7 @@ body {
 
     .clock-face {
         background-color: antiquewhite;
+        background-image: linear-gradient(rgba(255, 217, 0, 0.322), white);
     }
 
     .outer-container {
