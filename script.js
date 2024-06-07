@@ -9,7 +9,28 @@ let clockDiameter = 50;
  let dots = [];
  let tickMark = [];
 
-root.style.setProperty('--clock-width', `${clockDiameter}vw`);
+ function checkOrientation() {
+  const isLandscape = window.matchMedia("(orientation: landscape)").matches;
+  const isPortrait = window.matchMedia("(orientation: portrait)").matches;
+
+  if (isLandscape) {
+    // Code to execute when the screen is in landscape mode
+    root.style.setProperty('--container-width', `${clockDiameter}vh`);
+    // Add any additional logic or UI changes here
+  } else if (isPortrait) {
+    // Code to execute when the screen is in portrait mode
+    root.style.setProperty('--container-width', `${clockDiameter}vw`);
+    // Add any additional logic or UI changes here
+  }
+}
+
+// Call the checkOrientation function initially
+checkOrientation();
+
+// Listen for orientation change events and update the UI accordingly
+window.addEventListener("orientationchange", checkOrientation);
+
+
  
 function makeDots () {
     for( let i = 0; i < 4; i++) {
@@ -36,8 +57,8 @@ function tickMarks () {
         if (i % 5 != 0) {
             tickMark[i] = document.createElement('div');
             tickMark[i].setAttribute('class', 'tick-mark');
-            tickMark[i].style.width = `${clockDiameter/120}vw`;
-            tickMark[i].style.height = `${clockDiameter/60}vw`;
+            tickMark[i].style.width = `${clockDiameter/120}%`;
+            tickMark[i].style.height = `${clockDiameter/60}%`;
             tickMark[i].style.backgroundColor = 'purple'
             container.appendChild(tickMark[i]);
         }
@@ -51,8 +72,8 @@ function placeTickMarks () {
     for(let i = 0; i < 60; i++) {
         if (i % 5 != 0) {
             tickMark[i].style.position = 'absolute';
-            tickMark[i].style.top = `${clockDiameter * ( 1 - Math.cos(radians*i))/2}vw`;
-            tickMark[i].style.left = `${clockDiameter * ( 1 + Math.sin(radians*i))/2}vw`;
+            tickMark[i].style.top = `${clockDiameter * ( 1 - Math.cos(radians*i))}%`;
+            tickMark[i].style.left = `${clockDiameter * ( 1 + Math.sin(radians*i))}%`;
             tickMark[i].style.transform = `translate(-50%) rotate(${angle * i}deg)`;
             tickMark[i].style.transformOrigin = 'center top';
         }
