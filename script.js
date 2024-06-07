@@ -57,8 +57,8 @@ function tickMarks () {
         if (i % 5 != 0) {
             tickMark[i] = document.createElement('div');
             tickMark[i].setAttribute('class', 'tick-mark');
-            tickMark[i].style.width = `${clockDiameter/120}%`;
-            tickMark[i].style.height = `${clockDiameter/60}%`;
+            tickMark[i].style.width = `${clockDiameter/60}%`;
+            tickMark[i].style.height = `${clockDiameter/30}%`;
             tickMark[i].style.backgroundColor = 'purple'
             container.appendChild(tickMark[i]);
         }
