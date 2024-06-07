@@ -1,5 +1,6 @@
 :root {
-    --clock-width: 33vw;
+    --container-width: 50vw;
+    --clock-width: 100%;
     --clock-height: var(--clock-width);
     --second-hand: calc(var(--clock-width) * .01);
     --second-hand-length: calc(var(--clock-width) * .45);
@@ -18,8 +19,8 @@ body {
     position: relative;
     border: 15px solid goldenrod;
     border-radius: 50vw;
-    width: calc(var(--clock-width) * 1.02);
-    height: calc(var(--clock-height) * 1.02);
+    width: calc(var(--container-width) * 1.02);
+    height: calc(var(--container-width) * 1.02);
     top: 50vh;
     left: 50vw;
     transform: translate(-50%, -50%);
