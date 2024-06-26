@@ -222,9 +222,9 @@ body {
     position: relative;
 }
 
-@media screen and (min-width: 1000px) {
+@media screen and (orientation: landscape) {
     :root {
-        --clock-width: 33vw;
+        --container-width: 50vh;
     }
 
     .clock-face {
@@ -237,6 +237,6 @@ body {
     }
 
     .numbers {
-        font-size: 2em;
+        font-size: 1em;
     }
 }

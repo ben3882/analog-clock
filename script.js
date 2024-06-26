@@ -9,27 +9,7 @@ let clockDiameter = 50;
  let dots = [];
  let tickMark = [];
 
- function checkOrientation() {
-  const isLandscape = window.matchMedia("(orientation: landscape)").matches;
-  const isPortrait = window.matchMedia("(orientation: portrait)").matches;
-
-  if (isLandscape) {
-    // Code to execute when the screen is in landscape mode
-    root.style.setProperty('--container-width', `${clockDiameter}vh`);
-    // Add any additional logic or UI changes here
-  } else if (isPortrait) {
-    // Code to execute when the screen is in portrait mode
-    root.style.setProperty('--container-width', `${clockDiameter}vw`);
-    // Add any additional logic or UI changes here
-  }
-}
-
-// Call the checkOrientation function initially
-checkOrientation();
-
-// Listen for orientation change events and update the UI accordingly
-window.addEventListener("orientationchange", checkOrientation);
-
+ 
 
  
 function makeDots () {
@@ -46,8 +26,8 @@ function placeDots(){
     for( let i = 0; i < 4; i++) {
         dots[i].style.position = 'absolute';
         dots[i].style.backgroundColor = 'blue';
-        dots[i].style.top = `${clockDiameter * ( 1 - Math.cos(radians*i))/2}vw`;
-        dots[i].style.left = `${clockDiameter * ( 1 + Math.sin(radians*i))/2}vw`;
+        dots[i].style.top = `${clockDiameter * ( 1 - Math.cos(radians*i))}%`;
+        dots[i].style.left = `${clockDiameter * ( 1 + Math.sin(radians*i))}%`;
         dots[i].style.transform = `translate(${(1 + Math.sin(radians * (i)))*-100/2}%, ${(1 - Math.cos(radians * (i)))*-100/2}%)`;
     }
 }
@@ -91,7 +71,7 @@ setInterval(()=>{
     [s, m, h] = convert(time.getSeconds(), time.getMinutes(), time.getHours());
     secondHand.style.transform = `translateX(-50%) rotate(${s}deg)`;
     minuteHand.style.transform = `translateX(-50%) rotate(${m + s/60}deg)`;
-    hourHand.style.transform = `translateX(-50%) rotate(${h + m/60}deg)`;
+    hourHand.style.transform = `translateX(-50%) rotate(${h + m/12}deg)`;
     function convert(seconds, minutes, hours ){
         let angles = [];
         angles.push(seconds*6);
