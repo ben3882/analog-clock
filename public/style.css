@@ -1,0 +1,242 @@
+:root {
+    --container-width: 50vw;
+    --clock-width: 100%;
+    --clock-height: var(--clock-width);
+    --second-hand: calc(var(--clock-width) * .01);
+    --second-hand-length: calc(var(--clock-width) * .45);
+    --hour-hand: calc(var(--clock-width) * .05);
+    --hour-hand-length: calc(var(--clock-width) * .3);
+    --minute-hand: calc(var(--clock-width) * .03);
+    --minute-hand-length: calc(var(--clock-width) * .375);
+    --dot: 2vw;
+}
+
+body {
+    box-sizing: border-box;
+}
+
+.outer-container {
+    position: relative;
+    border: 15px solid goldenrod;
+    border-radius: 50vw;
+    width: calc(var(--container-width) * 1.02);
+    height: calc(var(--container-width) * 1.02);
+    top: 50vh;
+    left: 50vw;
+    transform: translate(-50%, -50%);
+}
+.container {
+    position: absolute;    
+    /* border: 1px solid blue; */
+    width: var(--clock-width);
+    height: var(--clock-height);
+    top: 50%;
+    left: 50%;
+    /* top: calc(100vh/2);
+    left:calc(100vw/2); */
+    transform: translate(-50%, -50%);
+}
+.clock-face {
+    position: absolute;
+    width: calc(var(--clock-width)*1);
+    height: calc(var(--clock-height)*1);
+    
+    /* padding: 3px; */
+    /* border: 1px solid gold; */
+    border-radius: calc(var(--clock-width) / 1);
+    overflow: auto;
+    
+}
+
+.clock-center {
+  position: absolute;
+    top: calc(var(--clock-width)/2);
+    left: calc(var(--clock-width)/2);
+    transform:translate(-50%, -50%);
+    width: 5vw;
+    height: 5vw;
+    /* border: 1px solid red; */
+    border-radius: 50vw;
+    /* visibility: hidden; */
+}
+
+
+.hour-hand {
+    position: absolute;
+    top: calc(var(--clock-width)/2  - var(--hour-hand-length));
+    left: calc(var(--clock-width)/2);
+    
+    transform-origin: center bottom;
+    transform: translateX(-50%) rotate(0deg);
+    width: var(--hour-hand);
+    height: var(--hour-hand-length);
+    background-color: blue;
+    border-radius: 1vw;
+}
+
+.minute-hand {
+    position: absolute;
+    top: calc(var(--clock-width)/2 - var(--minute-hand-length));
+    left: calc(var(--clock-width)/2);
+    transform-origin: center bottom;
+    transform: translateX(-50%) rotate(0deg);
+    width: var(--minute-hand);
+    height: var(--minute-hand-length);
+    background-color: black;
+    border-radius: 1vw;
+}
+
+.second-hand {
+    position: absolute;
+    top: calc(var(--clock-width)/2 - var(--second-hand-length));
+    left: calc(var(--clock-width)/2);
+    transform-origin: center bottom;
+    transform: translateX(-50%) rotate(0deg);
+    width: var(--second-hand);
+    height: var(--second-hand-length);
+    background-color: purple;
+    border-radius: 1vw;
+}
+
+.numbers {
+    font-size: 1em;
+    /* border: 1px solid green; */
+}
+
+.number12 {
+    position:absolute;
+    top:0;
+    left: calc(var(--clock-width)/2);
+    transform-origin: center;
+    transform: translate(-50%, 0);
+
+}
+
+.number3 {
+    position:absolute;
+    top:calc(var(--clock-width)/2);
+    left: calc(var(--clock-width));
+    transform-origin: center;
+    transform: translate(-100%, -50%);
+
+}
+.number6 {
+    position:absolute;
+    top:calc(var(--clock-width));
+    left: calc(var(--clock-width)/2);
+    transform-origin: center;
+    transform: translate(-50%, -100%);
+
+}
+
+.number9 {
+    position:absolute;
+    top:calc(var(--clock-width)/2);
+    left: 0;
+    transform-origin: center;
+    transform: translate(0%, -50%);
+
+}
+
+.number1 {
+    position:absolute;
+    top:calc(var(--clock-width) * 0.1340/2);
+    left: calc(var(--clock-width) * 1.5/2);
+    transform-origin: center;
+    transform: translate(-75%, 6.7%);
+}
+
+.number2 {
+    position:absolute;
+    top:calc(var(--clock-width) * 0.5/2);
+    left: calc(var(--clock-width) * 1.87/2);
+    transform-origin: center;
+    transform: translate(-93.3%, -25%);
+
+}
+
+.number4 {
+    position:absolute;
+    top:calc(var(--clock-width) * 1.5/2);
+    left: calc(var(--clock-width) * 1.87/2);
+    transform-origin: center;
+    transform: translate(-93.3%, -75%);
+    
+}
+
+.number5 {
+    position:absolute;
+    top:calc(var(--clock-width) * 1.87/2);
+    left: calc(var(--clock-width) * 1.5/2);
+    transform-origin: center;
+    transform: translate(-75%, -93.3%);
+
+}
+
+.number7 {
+    position:absolute;
+    top:calc(var(--clock-width) * 1.87/2);
+    left: calc(var(--clock-width) * 0.5/2);
+    transform-origin: center;
+    transform: translate(-25%, -93.3%);
+
+}
+
+.number8 {
+    position:absolute;
+    top:calc(var(--clock-width) * 1.5/2);
+    left: calc(var(--clock-width) * 0.134/2);
+    transform-origin: center;
+    transform: translate(-6.7%, -75%);
+
+}
+
+.number10 {
+    position:absolute;
+    top:calc(var(--clock-width) * 0.5/2);
+    left: calc(var(--clock-width) * 0.134/2);
+    transform-origin: center;
+    transform: translate(-6.7%, -25%);
+
+}
+
+.number11 {
+    position:absolute;
+    top:calc(var(--clock-width) * 0.1340/2);
+    left: calc(var(--clock-width) * 0.5/2);
+    transform-origin: center;
+    transform: translate(-25%, -6.7%);
+
+}
+
+.dot {
+    position: relative;
+    width: var(--dot);
+    height: var(--dot);
+    border: 1px solid black;
+    background-color: black;
+    border-radius: 2vw;
+}
+
+.tick-mark {
+    position: relative;
+}
+
+@media screen and (orientation: landscape) {
+    :root {
+        --container-width: 50vh;
+    }
+
+    .clock-face {
+        background-color: antiquewhite;
+        background-image: linear-gradient(rgba(255, 217, 0, 0.322), white);
+    }
+
+    .outer-container {
+        background-color: antiquewhite;
+    }
+
+    .numbers {
+        font-size: 1em;
+    }
+}
